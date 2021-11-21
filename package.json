@@ -20,6 +20,7 @@
     "@nrwl/tao": "13.2.1",
     "@nrwl/web": "13.2.1",
     "@nrwl/workspace": "13.2.1",
+    "@nxrocks/nx-flutter": "^3.0.0",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jest": "27.0.2",
