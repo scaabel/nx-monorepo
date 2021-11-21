@@ -20,25 +20,9 @@ jobs:
         with:
           node-version: '17'
       - run: npm install
-      - run: npx nx affected --target=build --parallel --max-parallel=3
-      - run: npx nx affected --target=test --parallel --max-parallel=2
-  release:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
-    needs: [main]
-    steps:
-      - uses: actions/checkout@v2
-        name: Checkout [main]
-        with:
-          fetch-depth: 0
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '17'
-      - run: npm install
-#      - run: npx nx --target=version --releaseAs=prerelease --preid=alpha
-      - run: npx nx run-many --target=version --all --dryRun --releaseAs=prerelease --preid=alpha
+      - run: npx nx affected --target=lint --parallel
+      - run: npx nx affected --target=test --parallel
+      - run: npx nx affected --target=build --parallel
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
@@ -53,5 +37,22 @@ jobs:
         with:
           node-version: '17'
       - run: npm install
-      - run: npx nx affected --target=build --parallel --max-parallel=3
-      - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: npx nx affected --target=lint --parallel
+      - run: npx nx affected --target=test --parallel
+      - run: npx nx affected --target=build --parallel
+  release:
+    runs-on: ubuntu-latest
+    needs: [main]
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout [main]
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '17'
+      - run: npm install
+      #      - run: npx nx --target=version --releaseAs=prerelease --preid=alpha
+      - run: npx nx run-many --target=version --all --dryRun --releaseAs=prerelease --preid=alpha
