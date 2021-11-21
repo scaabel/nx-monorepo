@@ -23,7 +23,8 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "runtimeCacheInputs": ["node -v"]
       }
     }
   },
@@ -31,6 +32,12 @@
     "build": [
       {
         "target": "build",
+        "projects": "dependencies"
+      }
+    ],
+    "version": [
+      {
+        "target": "version",
         "projects": "dependencies"
       }
     ]

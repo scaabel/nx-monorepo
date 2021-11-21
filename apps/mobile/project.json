@@ -123,7 +123,16 @@
       }
     },
     "version": {
-      "executor": "@jscutlery/semver:version"
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "postTargets": ["mobile:github"]
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "notesFile": "apps/mobile/CHANGELOG.md"
+      }
     }
   },
   "tags": []
