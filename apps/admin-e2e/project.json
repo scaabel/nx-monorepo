@@ -21,9 +21,6 @@
       "options": {
         "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
       }
-    },
-    "version": {
-      "executor": "@jscutlery/semver:version"
     }
   },
   "tags": [],
