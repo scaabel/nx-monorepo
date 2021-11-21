@@ -6,6 +6,6 @@
     "mobile": "apps/mobile",
     "store": "apps/store",
     "store-e2e": "apps/store-e2e",
-    "ui": "libs/ui"
+    "ui-web": "libs/ui-web"
   }
 }
