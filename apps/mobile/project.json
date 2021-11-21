@@ -121,6 +121,9 @@
         "command": "flutter build ipa",
         "cwd": "apps/mobile"
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version"
     }
   },
   "tags": []

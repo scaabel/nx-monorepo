@@ -63,6 +63,9 @@
         "jestConfig": "apps/admin/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version"
     }
   },
   "tags": []

@@ -18,6 +18,9 @@
         "jestConfig": "libs/ui-web/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version"
     }
   }
 }
