@@ -27,6 +27,7 @@ jobs:
         with:
           channel: 'stable'
       - run: npm install
+      - run: nx reset
       - run: npx nx affected --target=lint --parallel
       - run: npx nx affected --target=analyze --parallel
       - run: npx nx affected --target=test --parallel
@@ -52,6 +53,7 @@ jobs:
         with:
           channel: 'stable' # or: 'beta', 'dev' or 'master'
       - run: npm install
+      - run: nx reset
       - run: npx nx affected --target=lint --parallel
       - run: npx nx affected --target=analyze --parallel
       - run: npx nx affected --target=test --parallel
@@ -70,5 +72,7 @@ jobs:
         with:
           node-version: '17'
       - run: npm install
-      #      - run: npx nx --target=version --releaseAs=prerelease --preid=alpha
       - run: npx nx run-many --target=version --all --dryRun --releaseAs=prerelease --preid=alpha
+#      - run: npx nx --target=version --releaseAs=prerelease --preid=alpha --push --baseBranch main
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
