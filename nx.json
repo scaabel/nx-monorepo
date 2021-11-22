@@ -4,7 +4,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/react"
+    "defaultCollection": "@nrwl/workspace"
   },
   "implicitDependencies": {
     "package.json": {
@@ -64,6 +64,5 @@
       }
     }
   },
-  "defaultProject": "admin",
   "plugins": ["@nxrocks/nx-flutter"]
 }
