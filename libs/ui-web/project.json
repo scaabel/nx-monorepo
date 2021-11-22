@@ -20,7 +20,19 @@
       }
     },
     "version": {
-      "executor": "@jscutlery/semver:version"
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "baseBranch": "main",
+        "versionTagPrefix": "${target}@v",
+        "postTargets": ["ui-web:github"]
+      }
+
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "notesFile": "apps/ui-web/CHANGELOG.md"
+      }
     },
     "storybook": {
       "executor": "@nrwl/storybook:storybook",

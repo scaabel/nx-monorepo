@@ -67,6 +67,8 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
+        "baseBranch": "main",
+        "versionTagPrefix": "${target}@v",
         "postTargets": ["admin:github"]
       }
     },
