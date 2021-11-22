@@ -49,18 +49,15 @@
         "lintFilePatterns": ["apps/store/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "baseBranch": "main",
-        "versionTagPrefix": "${target}@v",
-        "postTargets": ["store:github"]
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "notesFile": "apps/store/CHANGELOG.md"
+        "commands": [
+          {
+            "command": "npx semantic-release"
+          }
+        ],
+        "cwd": "apps/store"
       }
     }
   },

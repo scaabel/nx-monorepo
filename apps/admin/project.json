@@ -64,18 +64,15 @@
         "passWithNoTests": true
       }
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "baseBranch": "main",
-        "versionTagPrefix": "${target}@v",
-        "postTargets": ["admin:github"]
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "notesFile": "apps/admin/CHANGELOG.md"
+        "commands": [
+          {
+            "command": "npx semantic-release"
+          }
+        ],
+        "cwd": "apps/admin"
       }
     }
   },

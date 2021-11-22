@@ -3,7 +3,7 @@
   "sourceRoot": "apps/mobile/src",
   "projectType": "application",
   "targets": {
-    "analyze": {
+    "lint": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "flutter analyze",
@@ -122,18 +122,15 @@
         "cwd": "apps/mobile"
       }
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "baseBranch": "main",
-        "versionTagPrefix": "${target}@v",
-        "postTargets": ["mobile:github"]
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "notesFile": "apps/mobile/CHANGELOG.md"
+        "commands": [
+          {
+            "command": "npx semantic-release"
+          }
+        ],
+        "cwd": "apps/mobile"
       }
     }
   },
