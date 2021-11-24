@@ -1,0 +1,50 @@
+{
+    "root": "apps/server",
+    "sourceRoot": "apps/server/src",
+    "projectType": "application",
+    "targets": {
+        "composer-install": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "composer install",
+                "cwd": "apps/server"
+            }
+        },
+        "composer-require": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "composer require {args.name}",
+                "cwd": "apps/server"
+            }
+        },
+        "artisan-route": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "php artisan route:{args.name}",
+                "cwd": "apps/server"
+            }
+        },
+        "artisan-migrate": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "php artisan make:migration {args.name}",
+                "cwd": "apps/server"
+            }
+        },
+        "artisan-model": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "php artisan make:model {args.name}",
+                "cwd": "apps/server"
+            }
+        },
+        "artisan-controller": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "php artisan make:controller {args.name}",
+                "cwd": "apps/server"
+            }
+        }
+    },
+    "tags": []
+}

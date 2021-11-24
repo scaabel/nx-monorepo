@@ -4,6 +4,7 @@
     "admin": "apps/admin",
     "admin-e2e": "apps/admin-e2e",
     "mobile": "apps/mobile",
+    "server": "apps/server",
     "store": "apps/store",
     "store-e2e": "apps/store-e2e",
     "ui-web": "libs/ui-web"
