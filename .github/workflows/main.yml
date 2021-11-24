@@ -115,7 +115,7 @@ jobs:
 
       - name: Build APK
         run: |
-          npx nx run mobile:buildApk
+          npx nx run mobile:buildApk -- --target-platform android-arm,android-arm64 --release
 
   build-ios:
     name: Build, Release & Publish
@@ -146,7 +146,7 @@ jobs:
 
       - name: Build IPA
         run: |
-          npx nx run mobile:buildIos
+          npx nx run mobile:buildIos --  --release --no-codesign
 
   release:
     name: Build, Release & Publish
